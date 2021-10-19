@@ -12,13 +12,13 @@ const Departments = (props) => {
        
          <div className="col">
          
-            <div className="card">
+            <div className="card h-100">
             <img src={img} className="card-img-top" alt="..."/>
             <div className="card-body">
-                <h5 className="card-title">Department Name: <span className="line">{name}</span></h5>
-                <p className="card-text">Click below buuton to check all doctor related {name} department</p>
+                <h5 className="card-title"><span className="line">{name}</span></h5>
+                <br/>
                <Link to={`/details/${id}`}>
-               <button className="btn">More Detail</button>
+               <button className="btn">CLick For More Detail</button>
                </Link>
             </div>
             </div>

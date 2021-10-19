@@ -13,18 +13,30 @@ import doc5 from '../../doctor-5.jpg';
 
 import Departments from '../Department/Departments';
 import './Home.css';
+import Gallery from '../Gallery/Gallery';
 
 const Home = () => {
     const [products,setProducts]= useState([])
+    //state for gallery
+    const [image,setImage]=useState([])
     useEffect(()=>
     {
-        fetch('./data.JSON')
+        fetch('https://raw.githubusercontent.com/Mahed21/json1/main/data.JSON')
         .then(res=>res.json())  
         .then(data=>setProducts(data))
     },[])
+
+    //useeffect for galley
+    useEffect(()=>
+    {
+       fetch('./gallery.JSON')
+       .then(res=>res.json())  
+        .then(data=>setImage(data))
+       
+    },[])
  
     return (
-    <div>
+        <div>
             {/* showing image by carosel */}
         <div className="row row-cols-lg-3 row-cols-md-2 row-col-1">
         <div className="cols">
@@ -112,7 +124,7 @@ const Home = () => {
          {/* showng all services */}
         
          <div className=" container mt-5 ">
-             <h1 className="line">Our all department related Doctor Services</h1> 
+             <h1 className="line">Our all Services</h1> 
          <div class="row row-cols-1 row-cols-md-3 g-4 mt-5">
              {
               products.map(product=><Departments 
@@ -165,25 +177,24 @@ const Home = () => {
 
             </div>
 
-            {/* our sevices */}
-            <div className="container mt-3">
-            <div className="row row-cols-lg-2 row-col-1">
-                <div className="col">
-                <h3>hii</h3>
-                </div>
-                <div className="col">
-                <h1>hi</h1>
-                </div>
-                
- 
-            </div>
-            </div>
-            {/* our services end */}
+           
          
         </div>
         </div>
         {/* few Doctor Information end */}
+       {/* gallery */}
+       <div class="container mt-5" >
+           <h1>Gallery</h1>
+           <div className="row row-cols-lg-3 row-cols-1n gx-3 gy-3 mt-2">
+           {
+             image.map(imgs=><Gallery imgs={imgs} key={imgs.key}>
+            </Gallery>)
+          }
+           </div>
         
+        </div>
+      {/* //gallery 
+         */}
             
     </div>
     );

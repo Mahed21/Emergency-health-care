@@ -1,21 +1,23 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useParams } from 'react-router';
+import { useState } from 'react/cjs/react.development';
+import DetailsDepartment from '../DetailsDepartment/DetailsDepartment';
 
 
 const Details = () => {
     const {departmentId}=useParams();
     const [loadData, setLoadData]=useState([]);
-    useEffect(()=>
-    {
-        fetch('./data.JSON')
-        .then(res=>res.json())  
-        .then(data=>console.log(data))
+    //const [loadDatas, setLoadDatas]=useState([]);
+    useEffect(()=>{
+        fetch('https://raw.githubusercontent.com/Mahed21/json1/main/data.JSON')
+        .then(res=>res.json())
+        .then(data=>setLoadData(data));
     },[])
+ 
 
     return (
         <div>
-            <h1>these is booking: {departmentId}</h1>
-            <h1>{loadData.length}</h1>
+            
         </div>
     );
 };

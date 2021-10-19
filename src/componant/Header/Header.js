@@ -1,8 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import UseAuth from '../../Context/UsAuth';
+
 import './Header.css'
 
 const Header = () => {
+  const {user,logOut}=UseAuth();
+
     return (
         <div>
 
@@ -18,17 +22,24 @@ const Header = () => {
         </li>
 
         <li className="nav-item">
-          <NavLink to="/about" className="ankor ms-3" >About</NavLink>
+          <NavLink to="/consultant" className="ankor ms-3" >Consultant</NavLink>
         </li>
 
         <li className="nav-item">
           <NavLink to="/contact" className="ankor ms-3">Contact Us</NavLink>
         </li>
 
+        
         <li className="nav-item">
-           <NavLink className="ankor ms-3" to="/login">Login</NavLink>
+           <NavLink className="ankor ms-3" to="/registerd">Registration</NavLink>
         </li>
+        <li className="nav-item">
+               <span className="text-white ms-3 ankor">{user.displayName}</span>
+                { user.email?<button className="ms-3" onClick={logOut}>Sign out</button>:
+                <NavLink className="ankor ms-3" to="/login">Login</NavLink>
 
+                }
+        </li>
      </ul>
     </div>
   </div>
