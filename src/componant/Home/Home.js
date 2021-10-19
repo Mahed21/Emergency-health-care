@@ -29,7 +29,7 @@ const Home = () => {
     //useeffect for galley
     useEffect(()=>
     {
-       fetch('./gallery.JSON')
+       fetch('./gallery.json')
        .then(res=>res.json())  
         .then(data=>setImage(data))
        

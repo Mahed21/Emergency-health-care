@@ -9,6 +9,7 @@ import Footer from './componant/Footer/Footer';
 import Header from './componant/Header/Header';
 import Home from './componant/Home/Home';
 import Login from './componant/Login/Login';
+import Not from './componant/Not/Not';
 import PrivateRoute from './componant/PrivateRoute/PrivateRoute';
 import Registerd from './componant/Registerd/Registerd';
 import AuthProvider from './Context/AuthProvider';
@@ -28,9 +29,9 @@ function App() {
         <Route path="/home">
          <Home></Home>
         </Route>
-        <Route path="/details/:departmentId">
+        <PrivateRoute path="/details/:departmentId">
           <Details></Details>
-        </Route>
+        </PrivateRoute>
 
         <PrivateRoute path="/contact">
           <Contact></Contact>
@@ -44,10 +45,12 @@ function App() {
         </Route>
         <Route path="/registerd">
           <Registerd></Registerd>
-
         </Route>
 
-
+        {/* not Found */}
+        <Route path="*">
+         <Not></Not>
+        </Route>
       </Switch>
       <Footer></Footer>
      </BrowserRouter>
