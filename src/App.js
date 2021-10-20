@@ -29,6 +29,7 @@ function App() {
         <Route path="/home">
          <Home></Home>
         </Route>
+
         <PrivateRoute path="/details/:departmentId">
           <Details></Details>
         </PrivateRoute>
@@ -36,6 +37,7 @@ function App() {
         <PrivateRoute path="/contact">
           <Contact></Contact>
         </PrivateRoute>
+
         <PrivateRoute path="/consultant">
           <Consultant></Consultant>
 
@@ -43,6 +45,7 @@ function App() {
         <Route path="/login">
           <Login></Login>
         </Route>
+
         <Route path="/registerd">
           <Registerd></Registerd>
         </Route>
@@ -51,6 +54,7 @@ function App() {
         <Route path="*">
          <Not></Not>
         </Route>
+
       </Switch>
       <Footer></Footer>
      </BrowserRouter>

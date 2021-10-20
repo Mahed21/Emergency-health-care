@@ -3,10 +3,6 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import UseAuth from '../../Context/UsAuth';
 
-
-
-
-
 const Registerd = () => {
     const {signInEmail,error}=UseAuth();
     const [email,setEmail]=useState({});

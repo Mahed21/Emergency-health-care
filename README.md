@@ -1,5 +1,5 @@
 # website Name: Emergency health care
-# To view the live site Click here [https://hungry-kilby-bd7979.netlify.app/]
+# To view the live site Click here [https://reverent-leavitt-638928.netlify.app/home]
 
 ## About
 emergency healthcare is a very popular hospital in sylhet, with well qualified doctor, within a reasonible price 
