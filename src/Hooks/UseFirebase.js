@@ -8,17 +8,19 @@ initialAuthentication()
         const provider = new GoogleAuthProvider();
         const [user, setUser]=useState({});
         const [error,setError]=useState('')
+        //for google
         const googleSignIn=()=>
         {
-            signInWithPopup(auth, provider)
-            .then((result)=>
-            {
-                //console.log(result.user);
-                setUser(result.user);
-            })
+            return signInWithPopup(auth, provider)
+           
         }
+        //for email pass
         const signInEmail=(email,pass)=>
         {
+            if(pass.length<6){
+                setError('password Should be 6 character long')
+                return ;
+            }
            
             createUserWithEmailAndPassword(auth, email, pass)
             .then((result)=>
@@ -56,6 +58,7 @@ initialAuthentication()
             googleSignIn,
             signInEmail,
             user,
+            error
             
            
             

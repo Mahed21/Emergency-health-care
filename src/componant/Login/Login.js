@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink,useLocation,useHistory } from 'react-router-dom';
 import UseAuth from '../../Context/UsAuth';
 
 
@@ -7,6 +7,17 @@ import UseAuth from '../../Context/UsAuth';
 
 const Login = () => {
     const {googleSignIn,signInEmail} =UseAuth();
+    const location=useLocation();
+    const history=useHistory();
+    console.log(location.state?.from );
+    const redirect_uri=location.state?.from || '/home';
+    const handleGoogle=()=>
+    {
+        googleSignIn().then((result)=>
+        {
+            history.push(redirect_uri);
+        })
+    }
  
    
     return (
@@ -32,7 +43,7 @@ const Login = () => {
                     <div className="col-12">
                     <button className="btn" onClick={(e)=>{
                         e.preventDefault();
-                        googleSignIn();
+                        handleGoogle();
 
                     }}>login With Google</button>
                    </div>

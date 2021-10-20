@@ -8,7 +8,7 @@ import UseAuth from '../../Context/UsAuth';
 
 
 const Registerd = () => {
-    const {signInEmail}=UseAuth();
+    const {signInEmail,error}=UseAuth();
     const [email,setEmail]=useState({});
     const [pass,setPass]=useState({});
    
@@ -44,12 +44,13 @@ const Registerd = () => {
                 </div>
                 <div className="col-md-6">
                     <label for="inputEmail4" className="form-label">Email</label>
-                    <input onBlur={handleEmail} type="email" className="form-control" id="inputEmail4"/>
+                    <input onBlur={handleEmail} type="email" className="form-control" id="inputEmail4" required/>
                 </div>
                 <div className="col-md-6">
                     <label for="inputPassword4" className="form-label">Password</label>
                     <input onBlur={HandlePassword} type="password" className="form-control" id="inputPassword4"/>
                 </div>
+                <div>{error}</div>
                 
                   <div className="col-12">
                     <button onClick={(e)=>{
