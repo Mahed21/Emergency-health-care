@@ -1,4 +1,4 @@
-import { getAuth, signInWithPopup, GoogleAuthProvider,onAuthStateChanged,createUserWithEmailAndPassword,signOut } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider,onAuthStateChanged,createUserWithEmailAndPassword,signOut,updateProfile } from "firebase/auth";
 import { useEffect, useState } from "react";
 import initialAuthentication from "../Firebase/Firebase.initial";
 initialAuthentication()
@@ -31,6 +31,18 @@ initialAuthentication()
 
 
         }
+        //update profile
+        // updateProfile(auth.currentUser, {
+        //     displayName: "Jane Q. User"
+        //   }).then(() => {
+        //     // Profile updated!
+        //     // ...
+        //   }).catch((error) => {
+        //     // An error occurred
+        //     // ...
+        //   })
+
+        //logout
         const logOut=()=>
         {
             signOut(auth)
@@ -42,6 +54,7 @@ initialAuthentication()
               });
     
         }
+        //state change
       useEffect(()=>
       {
         onAuthStateChanged(auth, (user) => {
